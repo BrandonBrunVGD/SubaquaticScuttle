@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag:
   - Finish
+  - Bullet
 --- !u!1 &8722608865785308292
 GameObject:
   m_ObjectHideFlags: 0
