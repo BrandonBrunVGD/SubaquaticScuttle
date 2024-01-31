@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private Renderer renderer;
 
+    public bool activateParallax = true;
+
     void Update() {
-        renderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0f);
+        
+        renderer.material.mainTextureOffset += new Vector2(0f, speed * Time.deltaTime);
+        
     }
 }

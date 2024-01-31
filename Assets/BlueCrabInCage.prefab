@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8451035605744872543}
   m_Layer: 7
   m_Name: BlueCrabInCage
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2674662995739025044}
-  mMoveSpeed: 1
+  mMoveSpeed: 0
+  xAxis: 1
+  yAxis: 0
 --- !u!114 &8451035605744872543
 MonoBehaviour:
   m_ObjectHideFlags: 0

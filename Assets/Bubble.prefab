@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9af7413f840b1344b9630429da9c5b33, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transform: {fileID: 134861456}
   minScale: 0.01
-  maxScale: 0.04
+  maxScale: 0.075
 --- !u!1 &7307438330211127105
 GameObject:
   m_ObjectHideFlags: 0

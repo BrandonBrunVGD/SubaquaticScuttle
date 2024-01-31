@@ -12,4 +12,11 @@ public class HandlePlayer : MonoBehaviour
    private void ActivatePlayer() {
         gameObject.SetActive(true);
    }
+
+   private void Update() {
+      if (GameManager.Instance.playerLives <= 0) {
+         Destroy(gameObject);
+         GameManager.Instance.GameOver();
+      }
+   }
 }

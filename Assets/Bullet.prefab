@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770410673088267008}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1770410674177178616}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1770410673088267012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!114 &1008648872874036696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 7363546376905700737}
-  mMoveSpeed: -10
+  mMoveSpeed: 7.5
+  xAxis: 0
+  yAxis: 1
 --- !u!58 &4737475532462570400
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -186,3 +188,7 @@ MonoBehaviour:
   tag:
   - Finish
   - Obstacle
+  - Collectable
+  - JellyFish
+  - Enemy
+  audioClip: {fileID: 8300000, guid: 0fd10a0a052249444907ed5199bc8efe, type: 3}

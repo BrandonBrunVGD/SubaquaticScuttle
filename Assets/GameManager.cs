@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public UnityEvent onPlay = new UnityEvent();
     public UnityEvent onGameOver = new UnityEvent();
+    public UnityEvent onGameWon = new UnityEvent();
+    public UnityEvent onDestroyLifeUI = new UnityEvent();
+    public UnityEvent onAddLifeUI = new UnityEvent();
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -19,20 +22,30 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    public AudioManager am;
     public bool isPlaying = false;
     public float currentShells = 0f;
     public float highestShells = 0f;
+    public int playerLives = 3;
+
+    //Wave info
+    public int jelliesKilled = 0;
+    public int eelsKilled = 0;
+    public int currentWave = 0;
+
+    private void Start() {
+        am = AudioManager.Instance;
+        onPlay.Invoke();
+        isPlaying = true;
+    }
     private void Update() {
         if (isPlaying) {
-
+            Debug.Log(playerLives);
         }
-
-    
     }
 
     public void StartGame() {
-        onPlay.Invoke();
-        isPlaying = true;
+        
     }
 
     public void GameOver() {
@@ -42,6 +55,11 @@ public class GameManager : MonoBehaviour
         if (currentShells > highestShells) {
             highestShells = currentShells;
         }
+    }
+
+    public void GameWon() {
+        onGameWon.Invoke();
+        isPlaying = false;
     }
 
     public string GetShells() {
@@ -54,5 +72,16 @@ public class GameManager : MonoBehaviour
 
     public void AddShells(float shells) {
         currentShells += shells;
+    }
+
+    public void DestroyLifeUI() {
+        onDestroyLifeUI.Invoke();
+    }
+
+    public void AddLifeUI() { 
+        if (playerLives < 3) {
+            playerLives += 1;
+        }
+        onAddLifeUI.Invoke();
     }
 }
