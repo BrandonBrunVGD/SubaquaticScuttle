@@ -24,7 +24,6 @@ public class Collision : MonoBehaviour
                 //}
                 if (gameObject.transform.tag == "Collectable") {
                     gm.AddLifeUI();
-                    Debug.Log("Life Added");
                 }
             }
         }
@@ -37,6 +36,9 @@ public class Collision : MonoBehaviour
         }
         else if (gameObject.tag == "Eel") {
             gm.eelsKilled += 1;
+        }
+        else if (gameObject.tag == "PufferFish") {
+            gm.puffersKilled += 1;
         }
     }
 

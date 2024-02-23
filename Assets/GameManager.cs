@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
     //Wave info
     public int jelliesKilled = 0;
     public int eelsKilled = 0;
-    public int currentWave = 0;
+    public int puffersKilled = 0;
+    public int currentWave = -1;
 
     private void Start() {
         am = AudioManager.Instance;
@@ -83,5 +84,13 @@ public class GameManager : MonoBehaviour
             playerLives += 1;
         }
         onAddLifeUI.Invoke();
+    }
+
+    public int GetCurrentWave() {
+        return currentWave;
+    }
+
+    public void AddCurrentWave() {
+        currentWave += 1;
     }
 }

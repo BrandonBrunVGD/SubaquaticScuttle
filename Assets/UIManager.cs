@@ -9,10 +9,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI shellsUI;
+    [SerializeField] private TextMeshProUGUI waveUI;
     [SerializeField] private TextMeshProUGUI gameOverShellsUI;
     [SerializeField] private TextMeshProUGUI gameOverHighestShellsUI;
     [SerializeField] private GameObject gameOverScreenUI;
-    //[SerializeField] private GameObject winScreenUI;
+    [SerializeField] private GameObject winScreenUI;
     [SerializeField] private GameObject gameUI;
     [SerializeField] private Image[] playerLives;
     GameManager gm;
@@ -20,9 +21,9 @@ public class UIManager : MonoBehaviour
     private void Start() {
         gm = GameManager.Instance;
         gameOverScreenUI.SetActive(false);
-        //winScreenUI.SetActive(false);
+        winScreenUI.SetActive(false);
         gm.onGameOver.AddListener(ActivateGameOverScreen);
-        //gm.onGameWon.AddListener(ActivateWinScreen);
+        gm.onGameWon.AddListener(ActivateWinScreen);
         gm.onDestroyLifeUI.AddListener(DestroyLife);
         gm.onAddLifeUI.AddListener(AddLife);
     }
@@ -39,10 +40,11 @@ public class UIManager : MonoBehaviour
     }
 
     private void ActivateWinScreen() {
-        //winScreenUI.SetActive(true);
+        winScreenUI.SetActive(true);
     }
 
     private void OnGUI() {
+        waveUI.text = gm.GetCurrentWave().ToString();
         shellsUI.text = gm.GetShells();
         gameOverShellsUI.text = gm.GetShells();
         gameOverHighestShellsUI.text = gm.GetHighestShells();

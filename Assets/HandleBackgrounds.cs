@@ -14,7 +14,7 @@ public class HandleBackgrounds : MonoBehaviour
     }
 
     void Update() {
-        if (timerActive && gm.currentWave == 1) {
+        if (timerActive && gm.currentWave >= 2) {
             transition = true;  
             timerActive = false;
         }

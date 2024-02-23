@@ -29,9 +29,9 @@ public class WaveManager : MonoBehaviour
                 }
                 break;
             case 1:
-                if (gm.jelliesKilled >= waves[waveSwitch].GetComponent<HandleWave>().numOfEnemies) {
+                if (gm.puffersKilled >= waves[waveSwitch].GetComponent<HandleWave>().numOfEnemies) {
                     Destroy(spawnedObject);
-                    gm.jelliesKilled = 0;
+                    gm.puffersKilled = 0;
                     Spawn(waves[2]);
                     waveSwitch = 2;
                     gm.currentWave += 1;
@@ -41,7 +41,25 @@ public class WaveManager : MonoBehaviour
                 if (gm.jelliesKilled >= waves[waveSwitch].GetComponent<HandleWave>().numOfEnemies) {
                     Destroy(spawnedObject);
                     gm.jelliesKilled = 0;
-                    gm.GameOver();
+                    Spawn(waves[3]);
+                    waveSwitch = 3;
+                    gm.currentWave += 1;
+                }
+                break;
+            case 3:
+                if (gm.puffersKilled >= waves[waveSwitch].GetComponent<HandleWave>().numOfEnemies) {
+                    Destroy(spawnedObject);
+                    gm.puffersKilled = 0;
+                    Spawn(waves[4]);
+                    waveSwitch = 4;
+                    gm.currentWave += 1;
+                }
+                break;
+            case 4:
+                if (gm.jelliesKilled >= waves[waveSwitch].GetComponent<HandleWave>().numOfEnemies) {
+                    Destroy(spawnedObject);
+                    gm.jelliesKilled = 0;
+                    gm.GameWon();
                 }
                 break;
             default:
@@ -51,6 +69,7 @@ public class WaveManager : MonoBehaviour
     }
 
     private void Spawn(GameObject wave) {
+
         Vector3 spawnLocation = transform.position;
 
         objectToSpawn = wave;
